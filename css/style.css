@@ -1,0 +1,876 @@
+:root{
+    --main-color : orange ;
+    --second-color : rgb(226, 226, 226);
+}
+
+body{
+    height: 4000px;
+    overflow-x: hidden;
+}
+.container {
+    padding: 0 30px;
+}
+
+/* start settings box */
+.settings-box {
+    position: fixed;
+    width: 200px;
+    left: -200px;
+    top: 0;
+    z-index: 9999;
+    background-color: white;
+    height: 100vh;
+    transition: .5s;
+    border: 1px solid gray;
+}
+.open {
+    left: 0;
+}
+.settings-box .settings-toggle{
+    color: black;
+    position: relative;
+    left: 200px;
+    top: 100px;
+    background-color: white;
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid gray;
+    border-left: none;
+    cursor: pointer;
+    width: fit-content;
+}
+.settings-box h4{
+    padding: 0 ;
+    margin: 0;
+    text-align: center;
+}
+.settings-box .colors {
+    list-style: none;
+    padding: 0px;
+    text-align: center;
+}
+.settings-box .colors li{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    opacity: .5;
+    cursor: pointer;
+}
+.settings-box .colors .active-color {
+    opacity: 1;
+}
+
+.settings-box h4:nth-of-type(2){
+    margin: 10px 0;
+}
+.settings-box .choice {
+    text-align: center;
+}
+.settings-box .choice span {
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: .5;
+    font-size: 15px;
+}
+
+.settings-box .choice .active {
+    opacity: 1;
+}
+
+.settings-box .backImages{
+    display: none;
+    padding-top: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.settings-box .backImages img {
+    width: 70px;
+    height: 70px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    opacity: .5;
+    cursor: pointer; 
+}
+
+.settings-box .backImages .active {
+    opacity: 1;
+    border: 2px solid red;
+    padding: 1px;
+}
+
+.reset-options{
+    display: block;         /* عشان المارجين يطبق عليه */
+    margin: 20px auto;
+    padding: 8px;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+/* end settings box */
+
+/* start header and landing page */
+.landing-page {
+    background-image: url('../images/1.jpg');
+    background-size: cover ;
+    min-height: 100vh; /* عشان يبقى كبير جدا و اعرف اصمم بدل م ياخد مساحة الكونتنت بس */
+    position: relative;
+    z-index: 0;
+}
+
+.landing-page .overlay{
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(0, 0, 0 ,.6);
+    width: 100%;  
+    height: 100%;
+    /* كان لازم اعمل ويدث و هايت عشان ده ديف فاضى ف ملوش مساحة .. ف لازم احددها انا و طبعا عاوز يملى الاب كله  */
+}
+
+.landing-page .header-area {
+    position: relative;   /* عملتها بس عشان اقدر استخدم خاصية زد اندكس .. و مينفعش ابسوليوت عشان هتبوظ الدنيا .. لازم ريلاتيف عشان مش هتغير حاجة  */
+    z-index: 2;         /* عشان يبقى الكلام فوق كل حاجة  */
+    color: white;
+    display: flex;
+    padding: 15px;
+}
+
+.landing-page .container{
+    position: relative;
+    z-index: 3;
+}
+.header-area .logo {
+    width: 300px;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.header-area .links-container{
+    width: 100%;
+    text-align: right;
+}
+.header-area .links-container button{
+    margin-top:10px ;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    display: none;
+    cursor: pointer;
+    position: relative;
+}
+.header-area .links-container button span{
+    background-color: white;
+    display: block;
+    width: 17px;
+    height: 3px;
+    margin: 3px 0px;
+}
+
+.header-area .links-container .links{
+    list-style: none;
+    display: block;
+    flex-grow: 1;        /* عشان الليست دى تاخد كل الباقى من مساحة البوكس .. لان الفليكس افتراضيا هيقسمها على حسب الكونتنت */
+    font-size: 15px;
+    padding-right: 20px;  
+    max-width: 95%;
+}
+
+
+
+/* ف الاول العنوان و ال ليست مكانوش قصاد بعض .. و عشان نخليهم قصاد بعض لازم نظبط مجموع المارجين و البادنج 
+    بتاع كل واحد فيهم .. المهم ف الاخر مجموع المارجين و البادنج بتاع ده يساوى مجموع المارجين و البادنج بتاع ده 
+    ف الحالة دى احنا لقينا ان الليست محطوطلها افتراضيا مارجين ب 15 من خلال مكتبة 
+    normalize.css 
+    ف بالتالى انا اتصرف عالاساس ده 
+    و اللى حصل انى خليت كل واحد فيهم مجموعه 30 بكسل ف جم قصاد بعض  
+*/
+
+.header-area .links li {
+    display: inline;
+    margin-left: 5px;
+}
+
+.header-area .links li a {
+    text-decoration: none;
+    color: white;
+    transition: .5s;
+}
+.header-area .links li a:hover ,
+.header-area .links li .active  {
+    color: var(--main-color) ;
+}
+
+.header-area .links-container button::before{
+    content: '';
+    border-style: solid;
+    border-width: 7px;
+    border-color: transparent transparent white transparent;
+    position: absolute;
+    top: 21px;
+    left: 2px;
+    display: none;
+}
+.header-area .links-container .menu-active::before{
+    display: block;
+}
+.introduction-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    /*
+    دي طريقة توسيط العنصر رأسيا و افقيا فى نفس الوقت
+    و معملتهاش بطريقة الفليكس لان هو مش جوا كونتينر عشان اقدر اعمل كدة 
+    و فى نفس الوقت مينفعش اعمل 
+    margin : 0 auto
+    لان ده هيوسطهولى افقيا بس لان بردو هو مش جوا كونتينر 
+    ف بالتالى دى الطريقة الوحيدة 
+    و هى ان اعمله بوسيشن ابسوليوت 
+    و اعمله ليفت و توب 50 و بعدين اعمل ترانسفورم بالسالب  
+    */
+    text-align: center;
+    z-index: 2;
+    color: white;
+}
+
+.introduction-text h1 {
+    letter-spacing: 1.5px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+}
+
+.introduction-text h1 span {
+    color: var(--main-color);
+}
+
+.introduction-text p {
+    line-height: 1.6;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* end header and landing page */
+
+/* start about-us */
+.about-us{
+    display: flex;
+    align-items: flex-start;
+}
+
+.about-us-text{
+    padding-top: 60px;
+    flex-basis: 50%;
+}
+.about-us-text .about-us-title{
+    color: var(--main-color);
+}
+.about-us-text p{
+    line-height: 1.8;
+    font-size: 18px;
+}
+.about-us .about-img {
+    flex-basis: 50%;
+}
+
+/* end about-us */
+
+
+/* start our skills */
+.our-skills{
+    background-color: var(--second-color);
+    margin-bottom: 200px;
+    padding: 10px;
+}
+.our-skills h2{
+    color: var(--main-color);
+    text-align: center;
+}
+
+.our-skills .skill {
+    display: flex;
+    padding: 20px 10px ;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.our-skills .skill .skill-name {
+    font-size: 18px;
+    padding-right: 15px;
+    flex-basis: 7%;
+    text-align: center;
+
+}
+.our-skills .skill .skill-progress{
+    background-color: var(--second-color) ; 
+    flex-basis: 93%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;       /* عشان السبان الجاية دى هتغطي الديف كله بدون النظر للراديس .. ف انا عاوز الحتة الزيادة دى تتمسح */
+}
+.our-skills .skill .skill-progress span{
+    position: absolute;
+    top : 0; 
+    left: 0;
+    width: 0%;
+    height: 100%;
+    transition: all 1s;
+    background-color: var(--main-color); 
+}
+/* end our skills */
+
+
+/* start gallery section */
+.gallery{
+    background-color: var(--second-color);
+    padding: 10px;
+}
+.images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gallery-heading {
+    text-align: center;
+    color: var(--main-color);
+    padding: 0;
+    margin-top: 0;
+}
+.images img{
+    display: inline-block;
+    width: 180px;
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid white;
+    padding: 5px;
+}
+.popup-up-overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0 , 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.popup-box{
+    position: fixed;
+    left: 50%;
+    top:50% ; 
+    transform: translate(-50%,-50%);
+    border: 15px solid white;
+    z-index:1001 ;
+}
+
+.popup-box .popup-img{
+    max-width: 100%;
+}
+.popup-box .close-span {
+    position: absolute;
+    right: -30px;
+    top: -27px;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    z-index: 1002;
+    padding: 8px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* end gallery section */
+
+/* start timeline */
+/* السكشن ده مهم جدا جدا عشان كل الشغل فيه بال فلوت */
+
+.timeline{
+    background-color: var(--second-color);
+    margin-top: 50px;
+    overflow: auto;
+    padding: 10px 0; 
+
+}
+.timeline .timeline-content {
+    position: relative;
+}
+.timeline .timeline-content::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--main-color);  /* لازم باك جراوند مينفعش كلار لان مفيش كونتنت */
+    left : 50% ; 
+    margin-left: -1px;
+    z-index: 2;
+    /*
+    دى طريقة تانية للتوسيط غير اللى انا عاملها 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    */
+}
+.timeline .timeline-content::after{
+    content: '2018';
+    position: absolute;
+    color: white;
+    text-align: center;
+    width: 60px;
+    height: 20px;
+    background-color: var(--main-color); 
+    left : 50% ; 
+    margin-left: -30px;
+    top: 25px;
+    padding: 3px 0;
+    border-radius: 5px;
+}
+.timeline .timeline-content .content {
+    width: calc(50% - 60px);
+    line-height: 1.5;
+    position: relative;
+    margin-bottom: 40px;
+    margin-top: 100px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.timeline .timeline-content .content h4 {
+    color: var(--main-color);
+    margin: 0 0 10px;
+}
+
+.timeline .timeline-content .content p {
+    color: rgb(66, 66, 66);
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.timeline .timeline-content .left {
+    float:left;
+}
+
+.timeline .timeline-content .right {
+    float: right;
+}
+
+
+/* كود الدايرة  */
+.timeline .timeline-content .left::before ,
+.timeline .timeline-content .right::before {
+    content: '';
+    background-color: white;
+    width: 14px;
+    height: 14px;
+    border: 3px solid var(--main-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    right: -30px;
+    z-index: 3;
+}
+
+.timeline .timeline-content .right::before {
+    left: -30px;
+}
+
+
+/* كود السهم */
+.timeline .timeline-content .left::after,
+.timeline .timeline-content .right::after {
+    content: '';
+    position: absolute;
+    top: 40px;              /* عشان تبقى قصاد الدايرة */
+    right: -20px;
+    border-style:solid ;
+    border-width: 10px;
+    border-color: transparent transparent transparent white; /* دى تقسيمة مثلثات و ترانسبيرنت يعنى شفاف */
+}
+
+.timeline .timeline-content .right::after {
+    right: auto;        /* عشان اخفى عمل اللى فوقها */
+    left: -20px;
+    border-color: transparent white transparent transparent; 
+}
+
+/* عشان الغى عمل ال فلوت */
+.clearfix{
+    clear: both;
+}
+
+/* end timeline */
+
+
+/* start our features */
+.our-features{
+    margin-top: 50px;
+    padding: 50px 0;
+}
+.our-features h2{
+    text-align: center;
+    color: var(--main-color);
+    padding: 10px 0 40px;
+}
+.our-features .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 50px;
+}
+
+.our-features .container .dept {
+    flex-basis: calc((100/3)*1%);
+    text-align: center;
+    margin-bottom: 30px;
+}
+.our-features .container .dept h4 {
+    font-weight: bold;
+    position: relative;
+
+}
+
+/* الخط الازرق اللى تحت العناوين */
+.our-features .container .dept h4::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    left: 50%;
+    margin-left:-15px;
+    top: 30px;
+    background-color: var(--main-color);
+}
+
+.our-features .container .dept img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 2px solid var(--second-color);
+    
+}
+.our-features .container .dept p {
+    width: 90%;
+    margin: 0 auto;
+    line-height: 1.5;
+    color: rgb(114, 114, 114);
+}
+
+/* end our features */
+
+/* start testimonials */
+.testimonials{
+    position: relative;
+    padding-top: 20px ;
+    margin-bottom: 50px;
+    min-height: 350px;
+    overflow: hidden;
+}
+.testimonials::before {
+    content: '';
+    width: 50%;
+    height: 100%;
+    background-color: var(--main-color);   
+    position: absolute; 
+}
+.testimonials::after{
+    content: '';
+    height: 100%;
+    width: 50%;
+    background-color: black;    
+    position: absolute; 
+    left: 50%;
+}
+.testimonials .container{
+    position: absolute;
+    z-index: 2;
+}
+.testimonials .container h3{
+    color: white;
+}
+.testimonials .container .ts-boxes{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.testimonials .container .ts-boxes .ts-box{
+    background-color: white;
+    flex-basis: calc(90%/3);
+    padding: 10px;
+}
+.testimonials .container .ts-boxes .ts-box>p{
+    background-color: white;
+    line-height: 1.5;
+}
+
+
+.testimonials .container .ts-boxes .ts-box .second-part{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.testimonials .container .ts-boxes .ts-box .second-part img{
+    flex-basis: 30%;
+    height: 100px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 2px solid var(--second-color);
+    margin-right: 10px;
+}
+
+.testimonials .container .ts-boxes .ts-box .second-part .person-info h4{
+    text-align: left;
+}
+.testimonials .container .ts-boxes .ts-box .second-part .person-info h4{
+    margin: 10px;
+}
+.testimonials .container .ts-boxes .ts-box .second-part .person-info span{
+    font-size: 15px;
+    color: gray;
+}
+
+/* end testimonials */
+
+
+/* start bullets */
+.bullets{
+    position: fixed;
+    z-index: 1000;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);  /* هتتوسط عموديا */
+}
+
+.bullets .bullet {
+    width: 10px;
+    border-radius: 50%;
+    height: 10px;
+    border: 2px solid var(--main-color);
+    background-color: transparent;
+    position: relative;
+    margin: 15px auto;
+    cursor: pointer;
+}
+.bullets .bullet:hover .tooltip {
+    display: block;
+}
+.bullets .bullet .tooltip {
+    position: absolute;
+    top: -7px;
+    left: -120px;
+    width: 103px;
+    background-color: var(--main-color);
+    color: white;
+    margin-right: 60px;
+    text-align: center;
+    padding: 3px;
+    border-radius: 2px;
+    pointer-events: none;      /* دى اللى هتخلى اليوزر ميقدرش يقرب ناحية التولتيب */
+    display: none;
+}
+
+/* السهم */
+.bullets .bullet .tooltip::before{
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: -14px;
+    border-style: solid;
+    border-width: 8px;
+    border-color: transparent transparent transparent var(--main-color);
+}
+/* end bullets */
+
+/* start contact-us */
+.contact-us{
+    margin-top: 50px;
+    background-size: cover;
+    background-image: url('../images/map.jpg');
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-bottom: 45px;
+}
+.contact-us .overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .1);
+    z-index: 1;
+}
+.contact-us h2{
+    color: var(--main-color);
+    text-align: center;
+}
+
+.contact-us .fields {
+    display: grid;
+    position: relative;
+    z-index: 10;
+    grid-template-areas: 
+    'leftPart rightPart'
+    ;
+    grid-gap: 0 10px;
+}
+.contact-us .left {
+    grid-area: leftPart;
+    display: grid;
+    grid-template-columns: 50% ; 
+    justify-content: right;
+    grid-template-rows: repeat(4,35px);
+    grid-gap: 10px 0;
+}
+
+.contact-us .right {
+    grid-area: rightPart;
+    display: grid;
+    grid-template-columns: 50% ; 
+    grid-template-rows: 125px 35px ;
+    grid-gap: 10px 0;
+}
+
+.contact-us .right button {
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 35px;
+}
+.contact-us input ,.contact-us textarea{
+    outline: none;
+}
+
+.contact-us input:focus ,.contact-us textarea:focus{
+    border: 2px solid var(--main-color);
+}
+.contact-us input:focus::placeholder ,.contact-us textarea:focus::placeholder{
+    opacity: 0;
+    transition: .4s;
+}
+
+/* end contact-us */
+
+/* start media query*/
+@media(max-width:576px){
+    .introduction-text h1 {
+        font-size: 18px;
+    }
+    .introduction-text p {
+        margin-top: 10px;
+    }
+    .our-features .container .dept {
+        flex-basis: 100%;
+    }
+}
+@media(min-width:577px)and (max-width:768px){
+    .introduction-text h1 {
+        font-size: 22px;
+    }
+    .introduction-text p {
+        font-size: 16px;
+    }
+    .our-features .container .dept {
+        flex-basis: 50%;
+    }
+}
+@media(max-width:777px){
+    .about-us{
+        display: block;
+    }
+    .about-us img{
+        width: 100%;
+    }
+    .timeline .timeline-content::before {
+        display: none;
+    }
+    .timeline .timeline-content .left ,
+     .timeline .timeline-content .right {
+        width: 90%;
+        text-align: center;
+    }
+    .timeline .timeline-content .left::before ,
+    .timeline .timeline-content .left::after ,
+    .timeline .timeline-content .right::before ,
+    .timeline .timeline-content .right::after  {
+        display: none;
+    }
+    .contact-us .fields {
+        grid-template-areas:
+            'leftPart'
+            'rightPart';
+        grid-gap:20px ;    
+    }
+    .contact-us .left {
+        grid-template-columns: 70%;
+        justify-content: center; 
+    }
+    .contact-us input{
+        outline: none;
+        height: 22px;
+    }
+    .contact-us .right {
+        grid-template-columns: 70%;
+        justify-content: center;
+    }
+}
+@media(max-width:991px){
+    .header-area .links-container .links{
+        display: none;
+    }
+    .header-area .links-container .open{
+        list-style: none;
+        display: block;
+        flex-grow: 1;        
+        font-size: 15px;
+        padding-right: 20px; 
+        position: absolute;
+        background-color: white;
+        padding: 20px;
+        width: 100%;
+        text-align: left;
+        top: 45px;
+        left: 0;
+        border-radius: 7px;
+    }
+    .header-area .open li {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    .header-area .open li a {
+        text-decoration: none;
+        color: black;
+        transition: .5s;
+    }
+    
+    
+    .header-area .links-container button{
+        display: inline-block;
+    }
+}
+
+@media(min-width:768px){
+    
+}
+@media(min-width:992px){
+    
+}
+@media(min-width:1200px){
+    
+}
+/* end media query */

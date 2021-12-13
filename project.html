@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" >
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+<body style="font-family: 'Open Sans', sans-serif;">
+    <!-- start settings box -->
+    <div class="settings-box">
+        <div class="settings-toggle">
+            <i class="fas fa-cog"></i>
+        </div>
+        <h4>Colors</h4>
+        <ul class="colors">
+            <li style="background-color: orange;"></li>
+            <li style="background-color: red;"></li>
+            <li style="background-color: green;"></li>
+            <li style="background-color: rgb(17, 131, 184);"></li>
+        </ul>
+        <h4>Random Backgrouds</h4>
+        <div class="choice">
+            <span class="active choices" data-randBack="yes">Yes</span>
+            <span class="choose" data-randBack='choose'>Choose One</span>
+        </div>
+        <div class="backImages">
+            <img class="choices" src="./images/0.jpg">
+            <img class="choices" src="./images/1.jpg">
+            <img class="choices" src="./images/2.jpg">
+            <img class="choices" src="./images/3.jpg">
+        </div>
+        <button class="reset-options">Reset Options</button>
+    </div>
+    <!-- end settings box -->
+
+    <!-- start bullets -->
+    <div class="bullets">
+        <div class="bullet" data-section="about-us">
+            <div class="tooltip">About Us</div>
+        </div>
+        <div class="bullet" data-section="our-skills">
+            <div class="tooltip">Skills</div>
+        </div>
+        <div class="bullet" data-section="gallery">
+            <div class="tooltip">Gallery</div>
+        </div>
+        <div class="bullet" data-section="timeline">
+            <div class="tooltip">Timeline</div>
+        </div>
+        <div class="bullet" data-section="testimonials">
+            <div class="tooltip">Testimonials</div>
+        </div>
+        <div class="bullet" data-section="our-features">
+            <div class="tooltip">Features</div>
+        </div>
+    </div>
+    <!-- end bullets -->
+
+    <!-- start landing page -->
+    <div class="landing-page">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="header-area">
+                <div class="logo">Special Design </div>
+                <div class="links-container">
+                    <button>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="links">
+                        <li><a href="" data-section="about-us">About-Us</a></li>
+                        <li><a href="" data-section="our-skills">Skills</a></li>
+                        <li><a href="" data-section="gallery">Gallery</a></li>
+                        <li><a href="" data-section="timeline">Timeline</a></li>
+                        <li><a href="" data-section="our-features">Features</a></li>
+                        <li><a href="" data-section="testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="introduction-text">
+            <h1>We Are <span>Creative</span> Agency</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. a galley of type and scrambled it to make </p>
+        </div>
+    </div>
+    <!-- end landing page -->
+
+    <!-- start about-us -->
+    <div class="container">
+        <div class="about-us">
+            <div class="about-us-text">
+                <h1 class="about-us-title">About Us</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+            </div>
+            <div class="about-img">
+                <img src="./images/aboutUs.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- end about-us -->
+    <!-- start our skills -->
+    <div class="our-skills">
+        <div class="container">
+            <h2>Our Skills</h2>
+            <div class="skill">
+                <div class="skill-name">Html</div>
+                <div class="skill-progress">
+                    <span data-progress="80%"></span>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Css</div>
+                <div class="skill-progress">
+                    <span data-progress="60%"></span>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-progress">
+                    <span data-progress="70%"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end our skills -->
+    <div class="gallery" >
+        <div class="container">
+            <h1 class="gallery-heading">Gallery</h1>
+            <div class="images">
+                <img src="./images/0.jpg" alt="">
+                <img src="./images/1.jpg" alt="">
+                <img src="./images/2.jpg" alt="">
+                <img src="./images/3.jpg" alt="">
+                <img src="./images/0.jpg" alt="">
+                <img src="./images/1.jpg" alt="">
+                <img src="./images/2.jpg" alt="">
+                <img src="./images/3.jpg" alt="">
+                <img src="./images/0.jpg" alt="">
+                <img src="./images/1.jpg" alt="">
+                <img src="./images/2.jpg" alt="">
+                <img src="./images/3.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="timeline">
+        <div class="container">
+            <div class="timeline-content">
+                <div class="content left">
+                    <h4>Timeline Header</h4>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="content right">
+                    <h4>Timeline Header</h4>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- start our features -->
+    <div class="our-features">
+        <h2>Our Features</h2>
+        <div class="container">
+            <div class="dept">
+                <img src="./logos/0.jpg" alt="">
+                <h4>Web Development</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>    
+            </div>
+            <div class="dept">
+                <img src="./logos/1.jpg" alt="">
+                <h4>Web Development</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>    
+            </div>
+            <div class="dept">
+                <img src="./logos/2.jpg" alt="">
+                <h4>Web Development</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>    
+            </div>
+            <div class="dept">
+                <img src="./logos/3.jpg" alt="">
+                <h4>Web Development</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>    
+            </div>
+            <div class="dept">
+                <img src="./logos/4.jpg" alt="">
+                <h4>Web Development</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>    
+            </div>
+            <div class="dept">
+                <img src="./logos/0.jpg" alt="">
+                <h4>Web Development</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>    
+            </div>
+        </div>
+    </div>
+    <!-- end our features -->
+
+    <!-- start testimonials -->
+    <div class="testimonials">
+        <div class="container">
+            <h3>Testimonials</h3>
+            <div class="ts-boxes">
+                <div class="ts-box">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    <div class="second-part">
+                        <img src="./images/bill.jpg" alt="">
+                        <div class="person-info">
+                            <h4>Ahmed</h4>
+                            <span>CEO Of Sec Company</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ts-box">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    <div class="second-part">
+                        <img src="./images/bill.jpg" alt="">
+                        <div class="person-info">
+                            <h4>Ahmed</h4>
+                            <span>CEO Of Sec Company</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ts-box">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    <div class="second-part">
+                        <img src="./images/bill.jpg" alt="">
+                        <div class="person-info">
+                            <h4>Ahmed</h4>
+                            <span>CEO Of Sec Company</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end testimonials -->
+
+    <!-- start contact-us -->
+    <div class="contact-us">
+        <div class="overlay"></div>
+        <h2>Contact-Us</h2>
+        <div class="fields">
+            <div class="left">
+                <input class="ssss" type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <input type="number" placeholder="Your Phone">
+                <input type="text" placeholder="Subject">
+            </div>
+            <div class="right">
+                <textarea name="message" placeholder="Message" ></textarea>
+                <button>Send</button>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- end contact-us -->
+
+
+
+
+
+    
+    <script src="js/plugins.js"></script>    
+</body>
+</html>
